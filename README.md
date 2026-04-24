@@ -6,6 +6,7 @@ Repository for Agentic Assignment 1
     uv sync                 Install or update all packages
     uv add package-name     Add a new package
     uv run app.py           Run the main program
+    python app.py           Run the main program
     uv run pytest           Run tests
     uv run ruff format .    Format your code nicely
 
@@ -22,7 +23,17 @@ Repository for Agentic Assignment 1
 ### Step 2: Open the Project in Cursor
 
 - In Cursor, go to **File → Open Folder**
-- Select the folder where you extracted the project (`agentic-day1`)
+- Select the folder where you extracted the project (eg C:\`agentic-day1`)
+## Prerequisites
+- Python 3.12+
+- Git
+- UV
+   ### 1. Install uv
+   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+   ### 2. Fix powershell Execution policy windows
+   powershell Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+ 
 
 ### Step 3:Setting Up API Keys
 After running the copy command:
@@ -36,37 +47,25 @@ env# ==================== LLM API KEYS ====================
 OPENAI_API_KEY=sk-your-actual-openai-key-here
 GOOGLE_API_KEY=your-actual-google-gemini-key-here
 
-### Step 4: Search Tools 
-tvly-your-actual-tavily-key-here
-
 Where to get API keys:
 
 OpenAI: https://platform.openai.com/api-keys
 Google Gemini: https://aistudio.google.com/app/apikey
-Tavily: https://app.tavily.com
+
+### Step 4: Clone the repository
+git clone https://github.com/reeverodrigues-oss/week1
 
 
-### Step 4: Install uv (if you don't have it)
+### Step 5. Create virtual environment
+uv venv
 
-Open Terminal in Cursor (`Ctrl + ``) and run:
+### Step 6. Install dependencies
+uv pip install -r requirements.txt
 
-```
-# Go into project folder
-cd agentic-day1 
+### Step 7. Activate the venv
+.venv\Scripts\activate        # Windows
+source .venv/bin/activate     # Mac/Linux
 
+### Step 7. Run the application
+python app.py
 
-# Check if uv is installed
-uv --version
-
-# If not installed, install it:
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-
-# Create virtual environment and install all packages
-uv sync
-
-# 3. Copy environment file
-copy .env.example .env
-
-# 4. Run the application
-uv run main.py
-```
